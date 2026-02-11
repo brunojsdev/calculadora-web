@@ -1,4 +1,4 @@
-// --- Lógica da Calculadora ---
+// --- LÓGICA DA CALCULADORA ---
 let calcExpression = "";
 const calcDisplay = document.getElementById("calc-display");
 
@@ -27,12 +27,11 @@ function calcEqual() {
     }
 }
 
-// --- ANIMAÇÃO DE GRADE (QUADRADINHOS) DO PORTFÓLIO ---
+// --- ANIMAÇÃO DE GRADE (GRID) DO PORTFÓLIO PRINCIPAL ---
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
-let width, height;
-let squares = [];
-const squareSize = 30; // Tamanho de cada quadradinho
+let width, height, squares = [];
+const squareSize = 30; 
 const color = '#00ff88'; // Verde Neon
 
 function resize() {
@@ -47,32 +46,24 @@ function initGrid() {
     const rows = Math.ceil(height / squareSize);
     for (let x = 0; x < cols; x++) {
         for (let y = 0; y < rows; y++) {
-            squares.push({
-                x: x * squareSize,
-                y: y * squareSize,
-                opacity: 0,
-                targetOpacity: 0
-            });
+            squares.push({ x: x * squareSize, y: y * squareSize, opacity: 0, targetOpacity: 0 });
         }
     }
 }
 
-// Interação com o mouse
 window.addEventListener('mousemove', (e) => {
     squares.forEach(sq => {
         const dx = e.clientX - (sq.x + squareSize / 2);
         const dy = e.clientY - (sq.y + squareSize / 2);
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-            sq.targetOpacity = 0.6;
-        }
+        if (dist < 100) sq.targetOpacity = 0.6;
     });
 });
 
 function animate() {
     ctx.clearRect(0, 0, width, height);
     
-    // Desenha as bordas da grade de forma sutil
+    // Desenha as linhas da grade
     ctx.strokeStyle = color;
     ctx.lineWidth = 0.1;
     ctx.globalAlpha = 0.1;
@@ -83,10 +74,10 @@ function animate() {
         ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(width, i); ctx.stroke();
     }
 
+    // Desenha e atualiza os quadrados
     squares.forEach(sq => {
-        // Suaviza a transição da opacidade
         sq.opacity += (sq.targetOpacity - sq.opacity) * 0.05;
-        sq.targetOpacity *= 0.96; // Faz o brilho sumir aos poucos
+        sq.targetOpacity *= 0.96;
 
         if (sq.opacity > 0.01) {
             ctx.globalAlpha = sq.opacity;
@@ -95,7 +86,7 @@ function animate() {
         }
     });
 
-    // Brilho aleatório ocasional
+    // Brilho aleatório (Glitch)
     if (Math.random() > 0.98) {
         squares[Math.floor(Math.random() * squares.length)].targetOpacity = 0.4;
     }
