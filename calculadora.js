@@ -22,15 +22,21 @@ function calcEqual() {
 }
 
  // --- SCRIPT DO FUNDO (CANVAS SQUARES) ---
-  // Cria um efeito de quadrados caindo/piscando inspirado na imagem de referência
-  const canvas = document.getElementById('bg-canvas');
-  const ctx = canvas.getContext('2d');
-  
-  let width, height;
-  let particles = [];
-  
-  // Cores da paleta (Verde, Ciano, Amarelo pálido)
-  const colors = ['#00ff88', '#00d2ff', '#ffffcc', '#005544'];
+
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+
+let width, height;
+let particles = [];
+
+// Paleta extraída diretamente do seu calculadora.css
+const colors = [
+  '#00ff88', // Verde Neon (Principal)
+  '#1e293b', // Cor da Borda (Sutil)
+  '#e2e8f0', // Cor do Texto
+  '#ef4444', // Cor do botão Clear (Destaque)
+  '#0b1221'  // Fundo do Card (Para profundidade)
+];
   
   function resize() {
     width = canvas.width = window.innerWidth;
