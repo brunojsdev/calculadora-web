@@ -7,6 +7,7 @@ Uma aplicação de calculadora funcional com interface moderna inspirada em disp
 * Tratamento de erros de sintaxe.
 * Interface responsiva com feedback visual nos botões.
 * Botão de retorno integrado ao portfólio principal.
+* Animação via Canvas com símbolos matemáticos
 
 ## 🛠️ Tecnologias
 * HTML5
