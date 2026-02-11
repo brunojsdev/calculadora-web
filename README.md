@@ -18,3 +18,5 @@ Uma aplicação de calculadora funcional com interface moderna inspirada em disp
 * calculadora.html
 * calculadora.css
 * calculadora.js
+* img/: Diretório dedicado exclusivamente ao **favicon** do projeto.
+* README.md: Documentação detalhada sobre o projeto.
