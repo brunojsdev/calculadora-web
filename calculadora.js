@@ -27,70 +27,79 @@ function calcEqual() {
     }
 }
 
-// --- ANIMAÇÃO DE PARTÍCULAS (MESMA DO PORTFÓLIO) ---
+// --- ANIMAÇÃO DE GRADE (QUADRADINHOS) DO PORTFÓLIO ---
 const canvas = document.getElementById('bg-canvas');
 const ctx = canvas.getContext('2d');
-let width, height, particles = [];
+let width, height;
+let squares = [];
+const squareSize = 30; // Tamanho de cada quadradinho
 const color = '#00ff88'; // Verde Neon
 
 function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
-    createParticles();
+    initGrid();
 }
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > width) this.x = 0; else if (this.x < 0) this.x = width;
-        if (this.y > height) this.y = 0; else if (this.y < 0) this.y = height;
-    }
-    draw() {
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-}
-
-function createParticles() {
-    particles = [];
-    const count = (width * height) / 12000;
-    for (let i = 0; i < count; i++) particles.push(new Particle());
-}
-
-function connect() {
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 150) {
-                ctx.strokeStyle = color;
-                ctx.globalAlpha = 1 - (dist / 150);
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.stroke();
-            }
+function initGrid() {
+    squares = [];
+    const cols = Math.ceil(width / squareSize);
+    const rows = Math.ceil(height / squareSize);
+    for (let x = 0; x < cols; x++) {
+        for (let y = 0; y < rows; y++) {
+            squares.push({
+                x: x * squareSize,
+                y: y * squareSize,
+                opacity: 0,
+                targetOpacity: 0
+            });
         }
     }
-    ctx.globalAlpha = 1;
 }
+
+// Interação com o mouse
+window.addEventListener('mousemove', (e) => {
+    squares.forEach(sq => {
+        const dx = e.clientX - (sq.x + squareSize / 2);
+        const dy = e.clientY - (sq.y + squareSize / 2);
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+            sq.targetOpacity = 0.6;
+        }
+    });
+});
 
 function animate() {
     ctx.clearRect(0, 0, width, height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    connect();
+    
+    // Desenha as bordas da grade de forma sutil
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 0.1;
+    ctx.globalAlpha = 0.1;
+    for(let i=0; i<width; i+=squareSize) {
+        ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, height); ctx.stroke();
+    }
+    for(let i=0; i<height; i+=squareSize) {
+        ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(width, i); ctx.stroke();
+    }
+
+    squares.forEach(sq => {
+        // Suaviza a transição da opacidade
+        sq.opacity += (sq.targetOpacity - sq.opacity) * 0.05;
+        sq.targetOpacity *= 0.96; // Faz o brilho sumir aos poucos
+
+        if (sq.opacity > 0.01) {
+            ctx.globalAlpha = sq.opacity;
+            ctx.fillStyle = color;
+            ctx.fillRect(sq.x + 1, sq.y + 1, squareSize - 2, squareSize - 2);
+        }
+    });
+
+    // Brilho aleatório ocasional
+    if (Math.random() > 0.98) {
+        squares[Math.floor(Math.random() * squares.length)].targetOpacity = 0.4;
+    }
+
     requestAnimationFrame(animate);
 }
 
