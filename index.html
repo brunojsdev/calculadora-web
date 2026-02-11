@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora | Bruno Silveira</title>
-    <link rel="icon" type="image/png" href="./img/fi-port.png">
+    <link rel="icon" type="image/png" href="img/favicon-calc.png">
     <link rel="stylesheet" href="calculadora.css">
+    <style>
+        /* Estilo para garantir que o Canvas fique no fundo */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Atrás de tudo */
+        }
+    </style>
 </head>
 <body>
+    <!-- CANVAS ADICIONADO AQUI -->
+    <canvas id="bg-canvas"></canvas>
+
     <div class="container">
         <h2>Calculadora Web</h2>
         <div class="calculator">
+            <!-- (Conteúdo da calculadora continua igual...) -->
             <div class="calc-display" id="calc-display">0</div>
             <div class="calc-keys">
                 <button class="clear" onclick="calcClear()">C</button>
@@ -34,11 +49,9 @@
                 <button onclick="calcAppend('0')">0</button>
             </div>
         </div>
-        <!-- Botão Voltar -->
         <a href="https://brunojsdev.github.io/meu-portfolio/" class="btn-voltar">← Voltar ao Início</a>
     </div>
 
-    <!-- Link para o JS separado -->
     <script src="calculadora.js"></script>
 </body>
 </html>
