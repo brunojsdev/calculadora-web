@@ -28,15 +28,15 @@
             <!-- (Conteúdo da calculadora continua igual...) -->
             <div class="calc-display" id="calc-display">0</div>
             <div class="calc-keys">
+                <button class="clear" onclick="calcClear()">C</button>
                 <button class="op" onclick="calcAppend('/')">/</button>
                 <button class="op" onclick="calcAppend('*')">x</button>
                 <button class="op" onclick="calcAppend('-')">-</button>
-                <button class="op" onclick="calcAppend('+')">+</button>
                 
                 <button onclick="calcAppend('7')">7</button>
                 <button onclick="calcAppend('8')">8</button>
                 <button onclick="calcAppend('9')">9</button>
-                <button class="clear" onclick="calcClear()">C</button>
+                <button class="op" onclick="calcAppend('+')">+</button>
 
                 <button onclick="calcAppend('4')">4</button>
                 <button onclick="calcAppend('5')">5</button>
