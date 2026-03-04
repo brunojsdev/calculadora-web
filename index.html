@@ -3,56 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora | Bruno Silveira</title>
-    <link rel="icon" type="image/png" href="./img/fi-port.png">
-    <link rel="stylesheet" href="calculadora.css">
-    <style>
-        /* Estilo para garantir que o Canvas fique no fundo */
-        #bg-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Atrás de tudo */
-        }
-    </style>
+    <title>Calculadora Tech</title>
+    <!-- Fonte moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- CANVAS ADICIONADO AQUI -->
+
+    <!-- Canvas de Background -->
     <canvas id="bg-canvas"></canvas>
 
-    <div class="container">
-        <h2>Calculadora</h2>
-        <div class="calculator">
-            <!-- (Conteúdo da calculadora continua igual...) -->
-            <div class="calc-display" id="calc-display">0</div>
-            <div class="calc-keys">
-                <button class="clear" onclick="calcClear()">C</button>
-                <button class="op" onclick="calcAppend('/')">/</button>
-                <button class="op" onclick="calcAppend('*')">x</button>
-                <button class="op" onclick="calcAppend('-')">-</button>
-                
-                <button onclick="calcAppend('7')">7</button>
-                <button onclick="calcAppend('8')">8</button>
-                <button onclick="calcAppend('9')">9</button>
-                <button class="op" onclick="calcAppend('+')">+</button>
-
-                <button onclick="calcAppend('4')">4</button>
-                <button onclick="calcAppend('5')">5</button>
-                <button onclick="calcAppend('6')">6</button>
-                <button class="op" onclick="calcEqual()">=</button>
-
-
-                <button onclick="calcAppend('1')">1</button>
-                <button onclick="calcAppend('2')">2</button>
-                <button onclick="calcAppend('3')">3</button>
-                <button onclick="calcAppend('0')">0</button>
-            </div>
+    <!-- Container Principal da Calculadora -->
+    <main class="container">
+        
+        <!-- Tela -->
+        <div class="display">
+            <div class="previous-operand" id="previous-operand"></div>
+            <div class="current-operand" id="current-operand">0</div>
         </div>
-        <a href="https://brunojsdev.github.io/meu-portfolio/" class="btn-voltar">← Voltar ao Início</a>
-    </div>
 
-    <script src="calculadora.js"></script>
+        <!-- Teclado -->
+        <div class="keypad">
+            <button class="btn-action" data-action="clear">AC</button>
+            <button class="btn-action" data-action="delete">DEL</button>
+            <button class="btn-operator" data-action="/">÷</button>
+            <button class="btn-operator" data-action="*">×</button>
+
+            <button data-number="7">7</button>
+            <button data-number="8">8</button>
+            <button data-number="9">9</button>
+            <button class="btn-operator" data-action="-">−</button>
+
+            <button data-number="4">4</button>
+            <button data-number="5">5</button>
+            <button data-number="6">6</button>
+            <button class="btn-operator" data-action="+">+</button>
+
+            <button data-number="1">1</button>
+            <button data-number="2">2</button>
+            <button data-number="3">3</button>
+            <button class="btn-equals" data-action="=">=</button>
+
+            <button class="span-2" data-number="0">0</button>
+            <button data-number=".">.</button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
