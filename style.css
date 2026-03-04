@@ -139,7 +139,7 @@ button:hover {
     color: #fff;
 }
 
-.btn-equals {
+.btn-two {
     background-color: var(--destaque-medio);
     color: var(--fundo-escuro);
     grid-column: span 2;
