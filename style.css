@@ -140,9 +140,14 @@ button:hover {
 }
 
 .btn-two {
-    background-color: var(--destaque-medio);
-    color: var(--fundo-escuro);
+    background-color: rgba(255, 153, 0, 0.1);
+    color: var(--destaque-escuro);
     grid-column: span 2;
+}
+
+.btn-two:hover {
+    background-color: var(--destaque-escuro);
+    color: var(--fundo-escuro);
 }
 
 .span-2 { grid-column: span 2; }
