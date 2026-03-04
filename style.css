@@ -148,6 +148,8 @@ button:hover {
 .btn-two:hover {
     background-color: var(--destaque-escuro);
     color: var(--fundo-escuro);
+    grid-column: span 2;
+
 }
 
 .span-2 { grid-column: span 2; }
