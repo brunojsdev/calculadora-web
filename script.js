@@ -365,6 +365,7 @@ if (canvas) {
   window.addEventListener('resize', initParticles);
 
   // Inicializa o sistema de partículas e o loop
+  resize();         
   initParticles();
   animate();
 }
