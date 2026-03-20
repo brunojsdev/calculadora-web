@@ -197,7 +197,7 @@ button:hover {
 .span-2 { grid-column: span 2; }
 
 /* ==========================================================================
-   RESPONSIVIDADE MOBILE (CALCULADORA)
+   RESPONSIVIDADE MOBILE 
    ========================================================================== */
 @media (max-width: 600px) {
     
