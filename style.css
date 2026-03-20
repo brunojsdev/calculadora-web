@@ -162,33 +162,49 @@ button {
     border: none;
     outline: none;
     border-radius: 12px;
-    padding: 1.2rem 0; /* Botões mais altos como você gostou no mobile */
+    padding: 1.2rem 0; /* Padding mais alto para o visual "gordinho" */
     font-size: 1.4rem;
     font-weight: 700;
     cursor: pointer;
     background-color: var(--fundo-claro);
     color: var(--textos);
     border: 1px solid rgba(90, 71, 255, 0.2);
-    /* Transição mais suave e profissional */
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Efeito de Hover: High-Tech */
 button:hover {
     background-color: var(--borda-escura);
     color: #fff;
     box-shadow: 0 0 15px rgba(87, 82, 255, 0.6);
-    transform: translateY(-3px); /* Leve subida ao passar o mouse */
+    transform: translateY(-3px);
 }
 
-/* Estilo para Operadores e Ações (Laranja/Amarelo) */
-.btn-action, .btn-operator, .btn-two {
-    background-color: rgba(255, 153, 0, 0.05);
+/* Botões que ocupam 2 colunas */
+.btn-two {
+    grid-column: span 2; 
+    background-color: rgba(255, 153, 0, 0.1);
     color: var(--destaque-escuro);
-    border: 1px solid rgba(255, 153, 0, 0.2);
+    border: 1px solid rgba(255, 153, 0, 0.3);
+    font-size: 1.1rem; /* Fonte menor para caber o texto longo sem apertar */
 }
 
-.btn-action:hover, .btn-operator:hover, .btn-two:hover {
+.btn-two:hover {
+    background-color: var(--destaque-escuro);
+    color: var(--fundo-escuro);
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
+}
+
+/* Botões de Ação e Operadores */
+.btn-action, .btn-operator {
+    background-color: rgba(255, 153, 0, 0.1);
+    color: var(--destaque-escuro);
+    border: 1px solid rgba(255, 153, 0, 0.3);
+}
+
+.btn-action:hover, .btn-operator:hover {
     background-color: var(--destaque-escuro);
     color: var(--fundo-escuro);
     box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
