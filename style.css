@@ -177,8 +177,14 @@ button:hover {
 }
 
 .btn-operator {
-    background-color: var(--borda-clara);
-    color: #fff;
+    background-color: rgba(255, 153, 0, 0.1);
+    color: var(--destaque-escuro);
+    border-color: rgba(255, 153, 0, 0.3);
+}
+
+.btn-operator:hover {
+    background-color: var(--destaque-escuro);
+    color: var(--fundo-escuro);
 }
 
 .btn-two {
