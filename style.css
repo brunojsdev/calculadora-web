@@ -194,18 +194,6 @@ button:hover {
 
 }
 
-.btn-twoo {
-    background-color: var(--borda-clara);
-    color: #fff;
-}
-
-.btn-twoo:hover {
-    background-color: var(--borda-escura);
-    color: #fff;
-    box-shadow: 0 0 15px rgba(87, 82, 255, 0.5);
-    transform: translateY(-2px);
-}
-
 .span-2 { grid-column: span 2; }
 
 /* ==========================================================================
