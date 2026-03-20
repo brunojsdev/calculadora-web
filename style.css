@@ -101,7 +101,6 @@ body {
 }
 
 /* --- TELA --- */
-/* --- INTERFACE PRINCIPAL (DESKTOP REFINADO) --- */
 .container {
     position: relative;
     z-index: 1;
@@ -120,7 +119,6 @@ body {
 }
 
 /* --- TELA (DISPLAY) --- */
-/* --- TELA (DISPLAY) - CORRIGIDO --- */
 .display {
     background-color: var(--fundo-escuro);
     border: 1px solid var(--borda-escura);
