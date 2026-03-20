@@ -196,18 +196,61 @@ button:hover {
 
 .span-2 { grid-column: span 2; }
 
-@media (max-width: 480px) {
-    .current-operand { font-size: 2.5rem; }
-    .container { padding: 1.5rem; }
-    button { font-size: 1.3rem; }
-}
-
-/* --- BOTÃO VOLTAR PORTFOLIO --- */
+/* ==========================================================================
+   RESPONSIVIDADE MOBILE (CALCULADORA)
+   ========================================================================== */
 @media (max-width: 600px) {
+    
+    /* 1. Botão Voltar (Ajuste de visibilidade) */
     .back-portfolio-btn {
         top: 10px;
         left: 10px;
         padding: 8px 15px;
         font-size: 0.8rem;
+        backdrop-filter: blur(12px);
+    }
+
+    /* 2. Centralização Inteligente */
+    body {
+        align-items: center; /* Mantém o centro */
+    }
+
+    .container {
+        width: 92%;
+        padding: 1.2rem;
+        gap: 1rem;
+        /* Puxa levemente para cima do centro */
+        transform: translateY(-5vh); 
+        border-radius: 18px;
+    }
+
+    /* 3. Ajuste do Display */
+    .display {
+        padding: 1rem;
+        min-height: 100px;
+    }
+
+    .current-operand {
+        font-size: 2.2rem; /* Reduzido para não vazar da caixa */
+    }
+
+    .previous-operand {
+        font-size: 1rem;
+    }
+
+    /* 4. Teclado e Botões (Touch-Friendly) */
+    .keypad {
+        gap: 8px; /* Espaço mais curto para caber tudo sem rolar a tela */
+    }
+
+    button {
+        padding: 1.2rem 0; /* Botões mais "gordinhos" para o dedo */
+        font-size: 1.2rem;
+        border-radius: 10px;
+    }
+
+    /* Ajuste específico para os botões que ocupam 2 colunas */
+    .btn-two {
+        padding: 1rem 0;
     }
 }
