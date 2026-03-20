@@ -120,6 +120,7 @@ body {
 }
 
 /* --- TELA (DISPLAY) --- */
+/* --- TELA (DISPLAY) - CORRIGIDO --- */
 .display {
     background-color: var(--fundo-escuro);
     border: 1px solid var(--borda-escura);
@@ -128,17 +129,24 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: flex-end; /* Alinha os números na base da tela */
+    justify-content: flex-end; 
     min-height: 140px;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9); /* Profundidade interna */
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+    
+    /* Propriedades cruciais para o texto não sair da caixa */
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
 }
 
 .current-operand {
-    font-size: 3.5rem; /* Número maior e mais legível */
+    font-size: 3rem; 
     font-weight: 700;
     color: var(--destaque-claro);
     text-shadow: 0 0 20px rgba(255, 221, 0, 0.3);
-    line-height: 1;
+    line-height: 1.1;
+    text-align: right;
+    width: 100%;
 }
 
 .previous-operand {
