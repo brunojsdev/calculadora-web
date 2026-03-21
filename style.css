@@ -1,8 +1,8 @@
 /* --- PALETA DE CORES --- */
 :root {
-    --fundo-claro: #190142;
-    --fundo-medio: #0b002b;
-    --fundo-escuro: #06001c;
+    --fundo-claro: #150136;
+    --fundo-medio: #090024;
+    --fundo-escuro: #040014;
     --destaque-claro: #ffdd00;
     --destaque-medio: #ffaa00;
     --destaque-escuro: #ff9900;
@@ -87,7 +87,7 @@ body {
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.50;
+    opacity: 0.35;
 }
 
 /* --- INTERFACE PRINCIPAL --- */
