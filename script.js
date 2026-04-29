@@ -4,7 +4,7 @@
    2. INTERFACE E EVENTOS (Botões do DOM)
    3. SUPORTE AO TECLADO FÍSICO
    4. SISTEMA DE TEMAS (Persistência e Toggle)
-   5. MOTOR DE ANIMAÇÃO (Canvas API - Efeito Espacial)
+   5. MOTOR DE ANIMAÇÃO (Canvas API - Efeito Espacial) 
    ========================================================================= */
 
 /* =========================================================================
