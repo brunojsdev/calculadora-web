@@ -1,75 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--
+  ==========================================================================
+  ÍNDICE DO ARQUIVO (HTML)
+  1. CONFIGURAÇÕES E METADADOS (<head>)
+  2. CONTROLES DE INTERFACE (Tema)
+  3. NAVEGAÇÃO EXTERNA (Botão Voltar)
+  4. FUNDO INTERATIVO (Canvas)
+  5. ESTRUTURA DA CALCULADORA (Display e Teclado)
+  6. RODAPÉ E SCRIPTS
+  ==========================================================================
+-->
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora</title>
-    
     <!-- Fonte moderna -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Ícone da aba do navegador -->
-    <link rel="icon" type="image/png" href="./img/fi-port.png">
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="./img/fi-port.png" />
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script></head>
-
-    <!-- Link para o CSS Externo -->
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Botão de Alternância de Tema -->
+    <button
+      id="theme-toggle-btn"
+      class="theme-toggle-btn"
+      title="Alternar Modo Claro/Escuro"
+    >
+      <i data-lucide="star" class="img-dark-mode"></i>
+      <i data-lucide="star-off" class="img-light-mode"></i>
+    </button>
 
     <!-- Botão Voltar ao Portfolio -->
-    <a href="https://brunojsilveira.vercel.app/" id="back-btn" onclick="window.close();" class="back-btn">
-    <div class="btn-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left">
-            <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
-        </svg>
-    </div>
-    <span class="btn-text">Voltar ao Portfolio</span>
+    <a
+      href="https://brunojsdev.github.io/meu-portfolio/"
+      class="back-portfolio-btn"
+    >
+      <i
+        data-lucide="arrow-big-left-dash"
+        style="width: 24px; height: 24px"
+      ></i>
+      <span>Voltar ao Portfolio</span>
     </a>
-    
+
     <!-- Canvas de Background -->
     <canvas id="bg-canvas"></canvas>
 
     <!-- Container Principal da Calculadora -->
     <main class="container">
-        
-        <!-- Tela -->
-        <div class="display">
-            <div class="previous-operand" id="previous-operand"></div>
-            <div class="current-operand" id="current-operand">0</div>
-        </div>
+      <!-- Tela -->
+      <div class="display">
+        <div class="previous-operand" id="previous-operand"></div>
+        <div class="current-operand" id="current-operand">0</div>
+      </div>
 
-        <!-- Teclado -->
-        <div class="keypad">
-            <button class="btn-action" data-action="clear">C</button>
-            <button class="btn-two" data-action="delete">DELETE</button>
-            <button class="btn-operator" data-action="/">/</button>
+      <!-- Teclado -->
+      <div class="keypad">
+        <!-- Voltando ao normal: Textos em vez de ícones para melhor legibilidade -->
+        <button data-action="clear">C</button>
+        <button class="span-2" data-action="delete">DELETE</button>
+        <button class="btn-operator" data-action="/">÷</button>
 
-            <button data-number="7">7</button>
-            <button data-number="8">8</button>
-            <button data-number="9">9</button>
-            <button class="btn-operator" data-action="*">×</button>
+        <button data-number="7">7</button>
+        <button data-number="8">8</button>
+        <button data-number="9">9</button>
+        <button class="btn-operator" data-action="*">×</button>
 
-            <button data-number="4">4</button>
-            <button data-number="5">5</button>
-            <button data-number="6">6</button>
-            <button class="btn-operator" data-action="+">+</button>
+        <button data-number="4">4</button>
+        <button data-number="5">5</button>
+        <button data-number="6">6</button>
+        <button class="btn-operator" data-action="-">−</button>
 
-            <button data-number="1">1</button>
-            <button data-number="2">2</button>
-            <button data-number="3">3</button>
-            <button class="btn-operator" data-action="-">−</button>
-            
-            <button class="btn-action" data-number=".">.</button>
-            <button btn-operator data-number="0">0</button>
-            <button class="btn-two" data-action="=">=</button>
-        </div>
+        <button data-number="1">1</button>
+        <button data-number="2">2</button>
+        <button data-number="3">3</button>
+        <button class="btn-operator" data-action="+">+</button>
 
+        <button data-number=".">.</button>
+        <button data-number="0">0</button>
+        <button class="btn-action span-2" data-action="=">=</button>
+      </div>
     </main>
 
+    <!-- Rodapé -->
+    <footer>
+      &copy; 2026 Bruno J. Silveira. Todos os direitos reservados.
+    </footer>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
